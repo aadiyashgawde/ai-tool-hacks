@@ -1,0 +1,407 @@
+/* --- Blog Listing Page Specific Styles --- */
+
+/* Ensure variables are available (assuming style.css is loaded first) */
+
+/* === Page Layout === */
+.blog-page-container {
+    padding: 4rem 0; /* More vertical padding */
+}
+
+.blog-page-header {
+    margin-bottom: 3rem; /* Space below header */
+}
+
+.blog-layout {
+    display: grid;
+    grid-template-columns: 1fr; /* Mobile first - single column */
+    gap: 3rem; /* Increased gap for better spacing */
+}
+
+/* Apply two-column layout on larger screens */
+@media (min-width: 992px) { /* Adjust breakpoint as needed */
+    .blog-layout {
+        grid-template-columns: 2fr 1fr; /* Main content wider than sidebar */
+    }
+    /* Explicit ordering is good practice but often not strictly needed if HTML order is correct */
+    .blog-main-content {
+        order: 0;
+    }
+    .blog-sidebar {
+       order: 1;
+    }
+}
+
+/* Add overflow hidden to grid children to prevent content spill */
+.blog-main-content,
+.blog-sidebar {
+    overflow: hidden;
+}
+
+
+/* === Blog Controls (Search/Filter) === */
+.blog-controls {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+    padding: 1.5rem;
+    background-color: var(--bg-secondary);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.blog-search {
+    flex: 1 1 300px; /* Grow and shrink, base width 300px */
+    position: relative;
+}
+
+.blog-search input[type="search"] {
+    width: 100%;
+    padding: 0.75rem 1rem 0.75rem 2.5rem; /* Add padding for icon */
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-color); /* Match page background */
+    color: var(--text-color);
+    font-size: 0.95rem;
+    transition: var(--transition);
+}
+
+.blog-search input[type="search"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(var(--primary-color), 0.2); /* Focus ring */
+}
+[data-theme="light"] .blog-search input[type="search"]:focus {
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15); /* Adjust light theme focus */
+}
+
+
+.blog-search .search-icon {
+    position: absolute;
+    left: 0.9rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-light);
+    pointer-events: none; /* Icon doesn't block input clicks */
+    font-size: 0.9rem;
+}
+
+.blog-filter {
+    flex: 1 1 200px; /* Grow and shrink, base width 200px */
+}
+
+.blog-filter select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-size: 0.95rem;
+    cursor: pointer;
+    appearance: none; /* Remove default arrow */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%2394a3b8' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3E%3C/svg%3E"); /* Custom arrow (color: slate-400) */
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1.25em 1.25em;
+    transition: var(--transition);
+}
+/* Adjust arrow color for light theme */
+[data-theme="light"] .blog-filter select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%2364748b' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3E%3C/svg%3E"); /* Custom arrow (color: slate-500) */
+}
+
+.blog-filter select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(var(--primary-color), 0.2); /* Focus ring */
+}
+[data-theme="light"] .blog-filter select:focus {
+     box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15); /* Adjust light theme focus */
+}
+
+
+/* === Blog Posts Listing Specifics === */
+.blog-posts-listing {
+    margin-bottom: 3rem; /* Space before pagination */
+     /* Inherits grid styles from .posts-grid in style.css */
+}
+
+/* Re-use .post-card from style.css */
+.blog-post-card {
+    /* Ensure animation properties are set for JS interaction */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out, box-shadow 0.3s ease, border-color 0.3s ease; /* Add base transitions */
+    will-change: opacity, transform;
+    /* Ensure background/border match base card style */
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 6px var(--shadow-color);
+}
+.blog-post-card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* Add display:none for JS filtering */
+.blog-post-card.hidden {
+    display: none;
+}
+/* Ensure hover effect from style.css still applies */
+.blog-post-card:hover {
+    transform: translateY(-8px) !important; /* Use !important ONLY if needed to override inline style */
+    box-shadow: 0 12px 24px -4px var(--shadow-color);
+}
+
+
+/* Message area for search/filter results */
+.blog-results-message {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    border-radius: 6px;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    color: var(--text-light);
+    font-size: 0.95rem;
+    display: none; /* Hidden by default */
+    text-align: center;
+}
+
+/* === Pagination === */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 3rem;
+}
+
+.pagination-btn {
+    padding: 0.6rem 1.2rem;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-secondary);
+    color: var(--text-light);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.pagination-btn:hover:not(:disabled) {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+
+.pagination-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.page-info {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+
+/* === Sidebar === */
+.sidebar-widget {
+    background-color: var(--card-bg); /* Use card background for widgets */
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 2px 4px var(--shadow-color);
+}
+.sidebar-widget:last-child {
+    margin-bottom: 0;
+}
+
+.widget-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-heading);
+    margin-top: 0; /* Reset margin */
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--primary-color);
+    display: inline-block; /* Make border fit content */
+}
+
+.widget-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.widget-list li {
+    margin-bottom: 0.75rem;
+}
+.widget-list li:last-child {
+    margin-bottom: 0;
+}
+
+.widget-list a {
+    color: var(--text-light);
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    text-decoration: none; /* Ensure no default underlines */
+    position: relative; /* For potential pseudo-elements */
+    padding: 0.2rem 0; /* Small padding for better click area */
+}
+.widget-list a::before {
+    content: '\f054'; /* FontAwesome chevron-right */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-size: 0.7em;
+    color: var(--primary-color);
+    opacity: 0.7;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    flex-shrink: 0; /* Prevent icon shrinking */
+}
+
+.widget-list a:hover {
+    color: var(--primary-color);
+    /* transform: translateX(4px); Optional subtle move */
+}
+.widget-list a:hover::before {
+    transform: scale(1.1); /* Slightly enlarge icon on hover */
+    opacity: 1;
+}
+
+/* Style for active filter link in sidebar */
+.widget-list a.active-filter {
+    color: var(--primary-color);
+    font-weight: 600; /* Make active filter bold */
+}
+.widget-list a.active-filter::before {
+    opacity: 1; /* Ensure icon is fully opaque */
+}
+
+
+/* Sidebar Ad Placeholder Styling */
+.sidebar-ad-placeholder {
+    background-color: var(--bg-secondary); /* Slightly different bg maybe */
+    min-height: 250px; /* Example height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    border: 1px dashed var(--border-color);
+    text-align: center;
+    flex-direction: column; /* Stack ad and placeholder text */
+    padding: 1rem;
+    margin-top: 1rem; /* Space if title is present */
+}
+/* Inherit .ad-placeholder-text style from style.css */
+.sidebar-ad-placeholder .ad-placeholder-text {
+    font-size: 0.7rem;
+    margin-top: 8px;
+}
+
+
+/* Sidebar Newsletter */
+.newsletter-widget p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    margin-top: 0; /* Reset paragraph margin */
+}
+
+.sidebar-newsletter-form {
+    display: flex;
+    flex-direction: column; /* Stack input and button */
+    gap: 0.75rem;
+}
+
+.sidebar-newsletter-form input[type="email"] {
+    padding: 0.6rem 1rem;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+.sidebar-newsletter-form input[type="email"]:focus {
+     outline: none;
+     border-color: var(--primary-color);
+     box-shadow: 0 0 0 2px rgba(var(--primary-color), 0.2);
+}
+[data-theme="light"] .sidebar-newsletter-form input[type="email"]:focus {
+     box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.15);
+}
+
+
+.sidebar-newsletter-form button {
+    width: 100%;
+    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
+    /* Inherits .btn styles */
+}
+
+/* Reuse newsletter message styles, maybe slightly smaller */
+.sidebar-newsletter-message {
+    margin-top: 0.75rem;
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+    /* Inherits base .newsletter-message styles */
+    display: none; /* Hidden by default */
+    border-radius: 4px;
+}
+.sidebar-newsletter-message.success {
+    display: block; /* Show when needed */
+    background-color: rgba(34, 197, 94, 0.15);
+    color: var(--success-color);
+    border: 1px solid rgba(var(--success-color), 0.3);
+}
+.sidebar-newsletter-message.error {
+    display: block; /* Show when needed */
+    background-color: rgba(239, 68, 68, 0.15);
+    color: var(--error-color);
+    border: 1px solid rgba(var(--error-color), 0.3);
+}
+
+
+/* === Responsive Adjustments for Blog Layout === */
+
+@media (max-width: 991px) { /* Below the grid switch */
+    .blog-sidebar {
+       /* Grid takes care of stacking, just add top margin when stacked */
+       margin-top: 3rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .blog-page-container {
+        padding: 2.5rem 0;
+    }
+    .blog-controls {
+        flex-direction: column; /* Stack search and filter */
+        gap: 1rem;
+        padding: 1rem;
+    }
+    .pagination {
+        flex-wrap: wrap; /* Allow pagination buttons to wrap */
+        gap: 0.75rem;
+    }
+    .page-info {
+        order: 1; /* Put page info between buttons */
+        width: 100%;
+        text-align: center;
+        margin: 0.5rem 0;
+    }
+    .pagination-btn.prev { order: 0; }
+    .pagination-btn.next { order: 2; }
+
+    .sidebar-widget {
+        padding: 1.25rem; /* Slightly reduce widget padding */
+    }
+    .widget-title {
+        font-size: 1.1rem; /* Slightly smaller widget title */
+    }
+}

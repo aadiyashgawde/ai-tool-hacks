@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<!-- Set data-page for JS nav highlighting -->
+<html lang="en" data-theme="dark" data-page="blog-index">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Meta Tags for Blog Listing Page -->
+    <meta name="description" content="Explore the latest articles, guides, and tutorials on AI tools, productivity hacks, and study techniques from AI Tool Hacks.">
+    <meta name="keywords" content="AI blog, AI tools, productivity, study hacks, AI tutorials, AI guides, latest AI news">
+    <title>Blog - AI Tool Hacks | Latest Articles & Guides</title>
+    <link rel="canonical" href="https://www.aitoolhacks.com/blog.html" /> <!-- ★ UPDATE Domain if needed ★ -->
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.aitoolhacks.com/blog.html"> <!-- ★ UPDATE Domain if needed ★ -->
+    <meta property="og:title" content="Blog - AI Tool Hacks | Latest Articles & Guides">
+    <meta property="og:description" content="Explore the latest articles, guides, and tutorials on AI tools, productivity hacks, and study techniques.">
+    <meta property="og:image" content="https://www.aitoolhacks.com/assets/images/og-image-blog.png"> <!-- ★ CREATE and UPDATE OG Image ★ -->
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.aitoolhacks.com/blog.html"> <!-- ★ UPDATE Domain if needed ★ -->
+    <meta property="twitter:title" content="Blog - AI Tool Hacks | Latest Articles & Guides">
+    <meta property="twitter:description" content="Explore the latest articles, guides, and tutorials on AI tools, productivity hacks, and study techniques.">
+    <meta property="twitter:image" content="https://www.aitoolhacks.com/assets/images/og-image-blog.png"> <!-- ★ CREATE and UPDATE OG Image ★ -->
+
+    <!-- Favicon (Add your favicon links here) -->
+    <!-- <link rel="icon" href="/favicon.ico" sizes="any"> -->
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Link BOTH CSS files: Main styles first, then blog-specific styles -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/blog/blog.css">
+
+    <!-- Google AdSense placeholder -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0000000000000000" crossorigin="anonymous"></script> <!-- ★ UPDATE Client ID ★ -->
+
+    <!-- No-JS Fallback Message Style -->
+    <noscript>
+        <style>
+            .no-js-message { background-color: #334155; color: #f8fafc; padding: 0.75rem 1rem; text-align: center; border-bottom: 1px solid #475569; font-size: 0.9rem; position: sticky; top: 0; z-index: 1005; }
+            [data-theme="light"] .no-js-message { background-color: #fef3c7; color: #78350f; border-bottom: 1px solid #fcd34d; }
+            .blog-post-card { opacity: 1 !important; transform: none !important; /* Ensure cards are visible without JS */ }
+        </style>
+    </noscript>
+</head>
+<body>
+    <!-- No-JS Fallback Message -->
+    <noscript>
+        <div class="no-js-message">
+            JavaScript is disabled. Theme switching, mobile navigation, animations, search, filtering, and pagination may not work as intended.
+        </div>
+    </noscript>
+
+    <!-- Theme Toggle (From Template) -->
+    <button class="theme-toggle" aria-label="Toggle light mode">
+        <i class="fas fa-sun"></i>
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Navigation (Consistent with index.html and blog1.html) -->
+    <nav class="navbar" role="navigation" aria-label="Main Navigation">
+        <div class="container">
+            <a href="index.html" class="logo" data-nav="logo"> <!-- Link back to index.html -->
+                <span class="logo-icon"><i class="fas fa-robot"></i></span>
+                <span>AI Tool Hacks</span>
+            </a>
+            <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links-list">
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-links" id="nav-links-list">
+                 <!-- Correct links based on file structure -->
+                <li><a href="index.html" data-nav="home"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="blog.html" data-nav="blogs"><i class="fas fa-blog"></i> Blogs</a></li>
+                <li><a href="about.html" data-nav="about"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="contact.html" data-nav="contact"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Blog Listing Content -->
+    <main class="blog-page-container">
+        <div class="container">
+
+            <!-- Page Header -->
+            <header class="blog-page-header section-header">
+                 <h2>Explore Our Blog</h2>
+                 <p class="section-subtitle">Discover insights, tutorials, and reviews on the latest in AI tools and productivity.</p>
+            </header>
+
+            <!-- Blog Layout: Main Content + Sidebar -->
+            <div class="blog-layout">
+
+                <!-- Main Content Area (Posts Grid) -->
+                <section class="blog-main-content" aria-label="Blog Posts">
+                    <!-- Search and Filter Controls -->
+                    <div class="blog-controls">
+                        <div class="blog-search">
+                            <label for="blog-search-input" class="sr-only">Search Blog Posts</label>
+                            <input type="search" id="blog-search-input" placeholder="Search posts...">
+                            <i class="fas fa-search search-icon"></i>
+                        </div>
+                        <div class="blog-filter">
+                            <label for="blog-category-filter" class="sr-only">Filter by Category</label>
+                            <select id="blog-category-filter">
+                                <option value="all">All Categories</option>
+                                <option value="Productivity">Productivity</option>
+                                <option value="Education">Education</option>
+                                <option value="Automation">Automation</option>
+                                <option value="AI Tutorials">AI Tutorials</option>
+                                <!-- Add more categories as needed -->
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Search/Filter Results Message Area -->
+                    <div id="blog-results-message" class="blog-results-message" aria-live="polite"></div>
+
+
+                    <!-- Reusing .posts-grid style from style.css -->
+                    <div class="posts-grid blog-posts-listing">
+                        <!-- === Blog Post Cards - Populate with your actual posts === -->
+                        <!-- Each article needs data-category attribute for filtering -->
+
+                        <!-- Post 1 -->
+                        <article class="post-card blog-post-card" data-category="Productivity">
+                            <div class="post-image">
+                                <img src="assets/images/blog1/chatGPT .png" alt="Abstract representation of ChatGPT prompts" loading="lazy">
+                            </div>
+                            <div class="post-content">
+                                <div class="post-meta">
+                                    <span class="post-category">Productivity</span>
+                                    <span class="post-date"><time datetime="2023-05-15">May 15, 2023</time></span>
+                                </div>
+                                <h3><a href="blog/blog-post-1.html">10 ChatGPT Prompts to Boost Your Productivity</a></h3> <!-- ★ UPDATE Link ★ -->
+                                <p>Discover effective prompts to get the best results from ChatGPT for daily tasks.</p>
+                                <div class="post-footer">
+                                    <a href="blog/blog-post-1.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a> <!-- ★ UPDATE Link ★ -->
+                                    <span class="read-time">5 min read</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Post 2 -->
+                        <article class="post-card blog-post-card" data-category="Education">
+                            <div class="post-image">
+                                <img src="assets/images/blog1/ai_for_student.png" alt="Students collaborating around a laptop showing AI interface" loading="lazy">
+                            </div>
+                            <div class="post-content">
+                                <div class="post-meta">
+                                    <span class="post-category">Education</span>
+                                    <span class="post-date"><time datetime="2023-05-10">May 10, 2023</time></span>
+                                </div>
+                                <h3><a href="blog/blog1.html">Best Free AI Tools for Students in 2025</a></h3>
+                                <p>Our curated list of top free AI tools for research, writing, and studying efficiently.</p>
+                                <div class="post-footer">
+                                    <a href="blog/blog1.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                                    <span class="read-time">7 min read</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Post 3 -->
+                        <article class="post-card blog-post-card" data-category="Automation">
+                             <div class="post-image">
+                                <img src="assets/images/blog1/ai_automate.png" alt="Gears and digital streams representing workflow automation" loading="lazy">
+                            </div>
+                            <div class="post-content">
+                                <div class="post-meta">
+                                    <span class="post-category">Automation</span>
+                                     <span class="post-date"><time datetime="2023-05-05">May 5, 2023</time></span>
+                                </div>
+                                <h3><a href="blog/blog2.html">How to Use Google’s NotebookLM for Smarter Studying</a></h3>
+                                <p>Discover how Google’s NotebookLM can help you organize notes and study smarter.</p>
+                                <div class="post-footer">
+                                    <a href="blog/blog2.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                                    <span class="read-time">10 min read</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Post 4 (Placeholder) -->
+                        <article class="post-card blog-post-card" data-category="AI Tutorials">
+                            <div class="post-image">
+                                <img src="assets/images/placeholder-post.png" alt="Placeholder image for a blog post" loading="lazy"> <!-- ★ UPDATE Image ★ -->
+                            </div>
+                            <div class="post-content">
+                                <div class="post-meta">
+                                    <span class="post-category">AI Tutorials</span>
+                                    <span class="post-date"><time datetime="2023-04-28">Apr 28, 2023</time></span>
+                                </div>
+                                <h3><a href="#">Getting Started with Midjourney Prompts</a></h3> <!-- ★ UPDATE Link ★ -->
+                                <p>A beginner's guide to crafting effective prompts for stunning AI image generation.</p>
+                                <div class="post-footer">
+                                    <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a> <!-- ★ UPDATE Link ★ -->
+                                    <span class="read-time">8 min read</span>
+                                </div>
+                            </div>
+                        </article>
+
+                         <!-- Post 5 (Placeholder) -->
+                        <article class="post-card blog-post-card" data-category="Productivity">
+                            <div class="post-image">
+                                <img src="assets/images/placeholder-post2.png" alt="Placeholder image for another blog post" loading="lazy"> <!-- ★ UPDATE Image ★ -->
+                            </div>
+                            <div class="post-content">
+                                <div class="post-meta">
+                                    <span class="post-category">Productivity</span>
+                                    <span class="post-date"><time datetime="2023-04-20">Apr 20, 2023</time></span>
+                                </div>
+                                <h3><a href="#">5 AI Chrome Extensions You Need</a></h3> <!-- ★ UPDATE Link ★ -->
+                                <p>Boost your browser experience with these powerful AI-driven extensions for productivity.</p>
+                                <div class="post-footer">
+                                    <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a> <!-- ★ UPDATE Link ★ -->
+                                    <span class="read-time">6 min read</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Add more posts as needed -->
+
+                    </div> <!-- End .posts-grid -->
+
+                     <!-- Pagination -->
+                    <nav class="pagination" aria-label="Blog posts navigation">
+                        <button class="pagination-btn prev" id="pagination-prev" disabled>« Previous</button>
+                        <span class="page-info" id="page-info">Page 1 of X</span>
+                        <button class="pagination-btn next" id="pagination-next">Next »</button>
+                    </nav>
+
+                </section> <!-- End .blog-main-content -->
+
+                <!-- Sidebar -->
+                <aside class="blog-sidebar" aria-label="Blog Sidebar">
+                    <!-- Sidebar Widget: Categories -->
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">Categories</h3>
+                        <ul class="widget-list category-widget-list">
+                            <li><a href="#" data-category-filter="all">All Categories</a></li>
+                            <li><a href="#" data-category-filter="Productivity">Productivity</a></li>
+                            <li><a href="#" data-category-filter="Education">Education</a></li>
+                            <li><a href="#" data-category-filter="Automation">Automation</a></li>
+                            <li><a href="#" data-category-filter="AI Tutorials">AI Tutorials</a></li>
+                            <!-- Add more categories corresponding to filter dropdown -->
+                        </ul>
+                    </div>
+
+                    <!-- Sidebar Widget: Recent Posts -->
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">Recent Posts</h3>
+                        <ul class="widget-list recent-posts-widget-list">
+                             <!-- List recent posts dynamically or manually -->
+                            <li><a href="blog/blog-post-1.html">10 ChatGPT Prompts...</a></li>
+                            <li><a href="blog/blog1.html">Best Free AI Tools for Students...</a></li>
+                            <li><a href="blog/blog2.html">How to Use Google’s NotebookLM...</a></li>
+                            <li><a href="#">Getting Started with Midjourney...</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Sidebar Widget: Ad Placeholder -->
+                    <div class="sidebar-widget">
+                        <h3 class="widget-title">Advertisement</h3>
+                        <div class="sidebar-ad-placeholder">
+                            <!-- AdSense placeholder -->
+                             <ins class="adsbygoogle"
+                                 style="display:block"
+                                 data-ad-client="ca-pub-0000000000000000" <!-- ★ UPDATE Client ID ★ -->
+                                 data-ad-slot="3333333333" <!-- ★ UPDATE Slot ID ★ -->
+                                 data-ad-format="auto"
+                                 data-full-width-responsive="true"></ins>
+                            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                            <small class="ad-placeholder-text">Advertisement Placeholder</small>
+                        </div>
+                    </div>
+
+                     <!-- Sidebar Widget: Newsletter Signup (Optional - reusing styles) -->
+                     <div class="sidebar-widget newsletter-widget">
+                         <h3 class="widget-title">Stay Updated</h3>
+                         <p>Get the latest AI hacks straight to your inbox!</p>
+                         <form class="newsletter-form sidebar-newsletter-form">
+                             <input type="email" placeholder="Your email" required aria-label="Email Address">
+                             <button type="submit" class="btn btn-primary">Subscribe</button>
+                         </form>
+                         <div class="newsletter-message sidebar-newsletter-message" aria-live="polite"></div>
+                     </div>
+
+                </aside> <!-- End .blog-sidebar -->
+
+            </div> <!-- End .blog-layout -->
+        </div> <!-- End .container -->
+    </main>
+
+    <!-- Reusable Footer (From Template) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section footer-about">
+                    <div class="footer-logo">
+                        <span class="logo-icon"><i class="fas fa-robot"></i></span>
+                        <span>AI Tool Hacks</span>
+                    </div>
+                    <p>Helping you harness the power of AI for productivity, study, and creativity since 2023.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Follow us on Twitter"><i class="fab fa-twitter"></i></a> <!-- ★ UPDATE links ★ -->
+                        <a href="#" aria-label="Connect with us on LinkedIn"><i class="fab fa-linkedin"></i></a><!-- ★ UPDATE links ★ -->
+                        <a href="#" aria-label="Follow us on Instagram"><i class="fab fa-instagram"></i></a><!-- ★ UPDATE links ★ -->
+                        <a href="#" aria-label="Subscribe to our YouTube channel"><i class="fab fa-youtube"></i></a><!-- ★ UPDATE links ★ -->
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="blog.html"><i class="fas fa-chevron-right"></i> Blog</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Categories</h3> <!-- ★ UPDATE links if using category pages ★ -->
+                    <ul>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Productivity</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Education</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Automation</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> AI Tutorials</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:contact@aitoolhacks.com">contact@aitoolhacks.com</a></li> <!-- ★ UPDATE Email ★ -->
+                        <li><i class="fas fa-map-marker-alt"></i> San Francisco, CA</li> <!-- ★ UPDATE Location ★ -->
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                 <p>© <span id="current-year">2024</span> AI Tool Hacks. All rights reserved.</p>
+                <div class="footer-links"> <!-- ★ UPDATE links ★ -->
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button (From Template) -->
+    <button class="scroll-to-top" aria-label="Scroll back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Link the Blog specific JS file -->
+    <script src="assets/js/blog/blog.js"></script>
+
+</body>
+</html>
