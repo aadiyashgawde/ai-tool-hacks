@@ -34,7 +34,7 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Linking to blog1.css as requested -->
-    <link rel="stylesheet" href="../assets/css/blog1.css">
+    <link rel="stylesheet" href="../assets/css/blog/blog.css">
 
     <!-- Google AdSense placeholder -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0000000000000000" crossorigin="anonymous"></script>
@@ -76,24 +76,7 @@
     </button>
 
     <!-- Reusable Navigation -->
-    <nav class="navbar" role="navigation" aria-label="Main Navigation">
-        <div class="container">
-            <a href="/" class="logo" data-nav="logo"> <!-- Link to homepage -->
-                <span class="logo-icon"><i class="fas fa-robot"></i></span>
-                <span>AI Tool Hacks</span>
-            </a>
-            <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links-list">
-                <span class="hamburger"></span>
-            </button>
-            <ul class="nav-links" id="nav-links-list">
-                <!-- Added data-nav attributes for robust highlighting -->
-                <li><a href="/" data-nav="home"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="/blogs.html" data-nav="blogs"><i class="fas fa-blog"></i> Blogs</a></li>
-                <li><a href="/about.html" data-nav="about"><i class="fas fa-info-circle"></i> About</a></li>
-                <li><a href="/contact.html" data-nav="contact"><i class="fas fa-envelope"></i> Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+    <div id="navbar-placeholder"></div>
 
     <!-- Main Blog Post Content -->
     <main class="blog-container container">
@@ -321,58 +304,7 @@
     </main>
 
     <!-- Reusable Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section footer-about">
-                    <div class="footer-logo">
-                        <span class="logo-icon"><i class="fas fa-robot"></i></span>
-                        <span>AI Tool Hacks</span>
-                    </div>
-                    <p>Helping you harness the power of AI for productivity, study, and creativity since 2023.</p>
-                     <div class="social-links">
-                        <a href="#" aria-label="Follow us on Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" aria-label="Connect with us on LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" aria-label="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="Subscribe to our YouTube channel"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="/"><i class="fas fa-chevron-right"></i> Home</a></li>
-                        <li><a href="/blogs.html"><i class="fas fa-chevron-right"></i> Blogs</a></li>
-                        <li><a href="/about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
-                        <li><a href="/contact.html"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Categories</h3>
-                    <ul>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Productivity</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Education</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Automation</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> AI Tutorials</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                     <h3>Contact Info</h3>
-                    <ul>
-                        <li><i class="fas fa-envelope"></i> <a href="mailto:contact@aitoolhacks.com">contact@aitoolhacks.com</a></li>
-                        <li><i class="fas fa-map-marker-alt"></i> San Francisco, CA</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                 <p>© <span id="current-year">2024</span> AI Tool Hacks. All rights reserved.</p>
-                <div class="footer-links">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                    <a href="#">Cookie Policy</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <div id="footer-placeholder"></div>
 
     <!-- Scroll to Top Button -->
     <button class="scroll-to-top" aria-label="Scroll back to top">
@@ -381,5 +313,7 @@
 
     <!-- Linking to blog1.js as requested -->
     <script src="../assets/js/blog1.js"></script>
+    <script src="../assets/js/includes.js"></script>
+
 </body>
 </html>
